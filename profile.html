@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikita Luther - Professional Poker Player</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a3093;
+            --secondary-color: #a044ff;
+            --accent-color: #e94057;
+            --light-color: #f9f7fe;
+            --dark-color: #2c2c54;
+            --text-color: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light-color);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(106, 48, 147, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--white) !important;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .navbar-toggler {
+            border: none;
+            padding: 10px;
+        }
+        
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.adda52.com/blog/wp-content/uploads/2018/06/Nikita-Luther-WSOP-2018.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .hero-social {
+            margin-top: 30px;
+            animation: fadeIn 2s ease;
+        }
+        
+        .hero-social a {
+            display: inline-block;
+            margin: 0 10px;
+            color: var(--white);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-social a:hover {
+            transform: translateY(-5px);
+            color: var(--accent-color);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 15%;
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-size: 1.05rem;
+        }
+        
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-item h4 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--white);
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -17px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -17px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+        
+        /* Achievements Section */
+        .achievements {
+            background: linear-gradient(135deg, #f9f7fe, #f0eaf8);
+        }
+        
+        .achievement-item {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .achievement-icon {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 28px;
+            box-shadow: 0 5px 15px rgba(106, 48, 147, 0.3);
+        }
+        
+        .achievement-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .achievement-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+            flex-grow: 1;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--white);
+        }
+        
+        .skill-category {
+            margin-bottom: 40px;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-info h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .skill-info span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: var(--light-color);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+        
+        .education-item {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .education-year {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .education-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .education-item h5 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .education-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--light-color);
+        }
+        
+        .gallery-item {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(106, 48, 147, 0.9), rgba(160, 68, 255, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-info {
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+        
+        .gallery-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .gallery-info p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        /* Blog Section */
+        .blog {
+            background-color: var(--white);
+        }
+        
+        .blog-card {
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover .blog-title {
+            color: var(--secondary-color);
+        }
+        
+        .blog-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .blog-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .blog-link i {
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .blog-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, #f9f7fe, #f0eaf8);
+            position: relative;
+        }
+        
+        .testimonial-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light-color);
+        }
+        
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '\201C';
+            font-size: 4rem;
+            position: absolute;
+            left: -20px;
+            top: -20px;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+        
+        .testimonial-author {
+            text-align: center;
+        }
+        
+        .testimonial-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-position {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-info {
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin-right: 15px;
+            color: var(--white);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text {
+            flex-grow: 1;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p, .contact-text a {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin: 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-form .form-control {
+            height: 50px;
+            border: 2px solid var(--light-color);
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+        
+        .contact-form textarea.form-control {
+            height: 150px;
+            resize: none;
+            padding: 15px 20px;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(106, 48, 147, 0.3);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(106, 48, 147, 0.4);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin: 0 10px;
+            color: var(--white);
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(106, 48, 147, 0.3);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(106, 48, 147, 0.4);
+            color: var(--white);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-nav a {
+            color: var(--white);
+            margin: 0 15px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-social {
+            margin-bottom: 30px;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--white);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 20px;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+            }
+            
+            .contact-info {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Nikita Luther</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
+                <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Nikita Luther</h1>
+        <p>Professional Poker Player | WSOP Bracelet Winner | Trailblazer</p>
+        <a href="#about" class="hero-btn">Discover My Story</a>
+        <div class="hero-social">
+            <a href="https://twitter.com/NikitaLuther" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/nikitaluther/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/nikita.luther" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/nikita-luther/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section about">
+    <div class="container">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Get to know more about my background, passion for poker, and professional journey.</p>
+        </div>
+        
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="https://pbs.twimg.com/media/FTDvP8RakAACjx9?format=jpg&name=4096x4096" alt="Nikita Luther" class="about-img w-100">
+            </div>
+            <div class="col-lg-7">
+                <div class="about-content">
+                    <h3>Professional Poker Player & WSOP Bracelet Winner</h3>
+                    <p>Nikita Luther is a professional poker player from Delhi, India, known for her exceptional skills and strategic gameplay. She gained prominence in the global poker community by becoming the first Indian woman to win a World Series of Poker (WSOP) bracelet in 2018, alongside her teammate Giuseppe Pantaleo in the $1,000 No-Limit Hold'em Tag Team event.</p>
+                    <p>With a strong background in finance and marketing, Nikita initially started her journey in the corporate world but soon discovered her passion for poker. She has played at some of the biggest poker tournaments across the world, including the World Poker Tour (WPT), Asian Poker Tour (APT), and European Poker Tour (EPT).</p>
+                    <p>Her fearless and analytical approach to the game has earned her a reputation as one of India's top poker professionals. Beyond her achievements on the felt, Nikita is also an advocate for women in poker and actively works to encourage more female participation in the sport.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <div class="about-content">
+                    <h3>My Poker Philosophy</h3>
+                    <p>Poker is not just a game of cards; it's a game of people, psychology, and mathematical precision. My approach combines analytical thinking with intuitive reads on opponents. I believe that success in poker comes from continuous learning, adapting to changing dynamics, and maintaining emotional discipline.</p>
+                    <p>As a female player in a predominantly male sport, I've had to overcome additional challenges and stereotypes. This experience has strengthened my resolve and made me a more resilient competitor. I'm passionate about breaking barriers and inspiring the next generation of poker players, especially women, to pursue their dreams in this intellectually stimulating game.</p>
+                    <p>When I'm not at the poker table, I enjoy traveling, reading psychology books, and mentoring aspiring players. I believe in giving back to the community that has given me so much.</p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <img src="https://pokerguru.in/wp-content/uploads/2019/07/nikita_1-1.jpg" alt="Nikita Luther at WSOP" class="about-img w-100">
+            </div>
+        </div>
+        
+        <div class="about-stats mt-5">
+            <div class="stat-item">
+                <h4>2018</h4>
+                <p>WSOP Bracelet</p>
+            </div>
+            <div class="stat-item">
+                <h4>$1M+</h4>
+                <p>Career Earnings</p>
+            </div>
+            <div class="stat-item">
+                <h4>100+</h4>
+                <p>Tournaments</p>
+            </div>
+            <div class="stat-item">
+                <h4>20+</h4>
+                <p>Countries Played</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Journey Section -->
+<section id="journey" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Poker Journey</h2>
+            <p>Explore the key milestones and moments that have shaped my career in professional poker.</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2014</span>
+                    <h3>Poker Beginnings</h3>
+                    <p>Started playing poker professionally after discovering a passion for the game during college. Began competing in local tournaments in Delhi.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2016</span>
+                    <h3>First International Tournament</h3>
+                    <p>Competed in my first international tournament in Macau, finishing in the money and gaining valuable experience against global competition.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2017</span>
+                    <h3>Macau Poker Cup Victory</h3>
+                    <p>Won the HK$4,000 NLH Teams Event at the Macau Poker Cup, marking my first major international victory.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2018</span>
+                    <h3>WSOP Bracelet Win</h3>
+                    <p>Made history by becoming the first Indian woman to win a WSOP bracelet in the $1,000 No-Limit Hold'em Tag Team event with teammate Giuseppe Pantaleo.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2019</span>
+                    <h3>WPT500 Las Vegas Runner-Up</h3>
+                    <p>Finished as runner-up in the prestigious WPT500 Las Vegas, competing against some of the best players in the world.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2020-2021</span>
+                    <h3>Online Poker Success</h3>
+                    <p>Adapted to the pandemic by excelling in online poker tournaments, securing multiple final table finishes in major online series.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2022-Present</span>
+                    <h3>Global Poker Ambassador</h3>
+                    <p>Expanded role as a poker ambassador, representing India on the global stage and advocating for more diversity in the game.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Achievements Section -->
+<section id="achievements" class="section achievements">
+    <div class="container">
+        <div class="section-title">
+            <h2>Achievements</h2>
+            <p>A showcase of my notable accomplishments and milestones in the world of professional poker.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4>WSOP Bracelet Winner (2018)</h4>
+                    <p>First Indian woman to win a WSOP bracelet in the $1,000 No-Limit Hold'em Tag Team event, a historic achievement in Indian poker.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Macau Poker Cup (2017)</h4>
+                    <p>Won the HK$4,000 NLH Teams Event at the Macau Poker Cup, demonstrating strategic teamwork and skill on an international stage.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>WPT500 Las Vegas (2019)</h4>
+                    <p>Runner-up in the prestigious WPT500 Las Vegas, competing against a field of over 2,000 players and showcasing world-class poker skills.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h4>APT Vietnam Main Event (2019)</h4>
+                    <p>Finished 6th in the Asian Poker Tour Vietnam Main Event, proving consistency in international poker tournaments.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h4>Aria Poker Classic (2017)</h4>
+                    <p>Secured 5th place in the Aria Poker Classic Main Event in Las Vegas, competing against global poker professionals.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Poker Ambassador</h4>
+                    <p>Recognized as a leading ambassador for poker in India, promoting the game and inspiring new players, especially women, to join the poker community.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills & Education Section -->
+<section id="skills" class="section skills">
+    <div class="container">
+        <div class="section-title">
+            <h2>Skills & Education</h2>
+            <p>A look at my professional skills, poker expertise, and educational background.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="skill-category">
+                    <h3>Poker Skills</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Texas Hold'em Strategy</h4>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Tournament Play</h4>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Bankroll Management</h4>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Psychological Resilience</h4>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Probability Analysis</h4>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Strategic Thinking</h4>
+                            <span>94%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 94%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Decision Making</h4>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Risk Assessment</h4>
+                            <span>87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 87%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Public Speaking</h4>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="skill-category">
+                    <h3>Education & Certifications</h3>
+                    
+                    <div class="education-item">
+                        <span class="education-year">2010 - 2014</span>
+                        <h4>Bachelor's Degree in Finance and Marketing</h4>
+                        <h5>University of Delhi</h5>
+                        <p>Graduated with honors, focusing on financial analysis and marketing strategies that later proved valuable in poker career planning.</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <span class="education-year">2015</span>
+                        <h4>Advanced Poker Strategy Certification</h4>
+                        <h5>Poker Strategy Academy</h5>
+                        <p>Completed intensive training in advanced poker strategies, game theory optimal play, and tournament tactics.</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <span class="education-year">2017</span>
+                        <h4>Mental Game Mastery Program</h4>
+                        <h5>Poker Mind Coach</h5>
+                        <p>Specialized training in poker psychology, tilt control, and maintaining peak mental performance during high-pressure situations.</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <span class="education-year">2019</span>
+                        <h4>Professional Poker Coaching Certification</h4>
+                        <h5>International Poker Institute</h5>
+                        <p>Certified to coach and mentor aspiring poker players, focusing on holistic development of technical and psychological skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="section gallery">
+    <div class="container">
+        <div class="section-title">
+            <h2>Photo Gallery</h2>
+            <p>A visual journey through my poker career, tournaments, and memorable moments.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item">
+                    <img src="https://thebridge.in/wp-content/uploads/2019/08/Nikita-Luther.jpg" alt="WSOP 2018" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>WSOP 2018 Bracelet Win</h4>
+                            <p>Historic moment winning the WSOP bracelet in Las Vegas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item">
+                    <img src="https://pnimg.net/lrep/2003/79/mf320ca8c9c.jpg" alt="Tournament Action" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Tournament Action</h4>
+                            <p>Focused during a high-stakes poker tournament</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item">
+                    <img src="https://gutshotmagazine.com/wp-content/uploads/2023/07/m607b1e076c-1.jpg" alt="Media Interview" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Media Interview</h4>
+                            <p>Sharing insights with poker media after a tournament</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item">
+                    <img src="https://live.staticflickr.com/65535/52818812821_8fce9eb089_b.jpg" alt="Poker Table" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>At the Felt</h4>
+                            <p>Strategic gameplay during a major tournament</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item">
+                    <img src="https://pbs.twimg.com/media/FTDvP8RakAACjx9?format=jpg&name=4096x4096" alt="Professional Photoshoot" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Professional Photoshoot</h4>
+                            <p>Brand ambassador photoshoot for poker platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item">
+                    <img src="https://pokerguru.in/wp-content/uploads/2019/07/nikita_1-1.jpg" alt="Trophy Moment" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Trophy Moment</h4>
+                            <p>Celebrating a tournament victory</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="section blog">
+    <div class="container">
+        <div class="section-title">
+            <h2>Latest Blog Posts</h2>
+            <p>Insights, strategies, and stories from my poker journey and experiences.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://live.staticflickr.com/65535/52818812821_8fce9eb089_b.jpg" class="card-img-top blog-img" alt="Poker Strategy">
+                        <span class="blog-category">Strategy</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> April 15, 2025
+                        </div>
+                        <h5 class="blog-title">Mastering Poker Strategy: Beyond the Basics</h5>
+                        <p class="blog-excerpt flex-grow-1">Essential tips and advanced strategies to improve your poker game and stay ahead of the competition in high-stakes tournaments.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://pnimg.net/lrep/2003/79/mf320ca8c9c.jpg" class="card-img-top blog-img" alt="WSOP Journey">
+                        <span class="blog-category">Experience</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> March 22, 2025
+                        </div>
+                        <h5 class="blog-title">My WSOP Journey: Behind the Bracelet</h5>
+                        <p class="blog-excerpt flex-grow-1">A behind-the-scenes look at my experience winning the prestigious WSOP bracelet and the challenges I overcame along the way.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://gutshotmagazine.com/wp-content/uploads/2023/07/m607b1e076c-1.jpg" class="card-img-top blog-img" alt="Women in Poker">
+                        <span class="blog-category">Advocacy</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> February 8, 2025
+                        </div>
+                        <h5 class="blog-title">Women in Poker: Breaking Barriers</h5>
+                        <p class="blog-excerpt flex-grow-1">Exploring the challenges and triumphs of women in poker, and how we can create a more inclusive environment in the game.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://www.adda52live.com/blog/wp-content/uploads/2019/02/Nikita-Luther-Won-The-DPT-15K-Deep-Dive-NLH-Event-1200x800.jpg" class="card-img-top blog-img" alt="Mental Game">
+                        <span class="blog-category">Psychology</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> January 17, 2025
+                        </div>
+                        <h5 class="blog-title">The Mental Game: Psychology of Poker</h5>
+                        <p class="blog-excerpt flex-grow-1">How to develop mental resilience, overcome tilt, and maintain focus during crucial moments in poker tournaments.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://pbs.twimg.com/media/FTDvP8RakAACjx9?format=jpg&name=4096x4096" class="card-img-top blog-img" alt="Poker in India">
+                        <span class="blog-category">Industry</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> December 5, 2024
+                        </div>
+                        <h5 class="blog-title">The Rise of Poker in India</h5>
+                        <p class="blog-excerpt flex-grow-1">Exploring the growth of poker in India, the evolving landscape, and how the game is gaining popularity across the country.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://pokerguru.in/wp-content/uploads/2019/07/nikita_1-1.jpg" class="card-img-top blog-img" alt="Bankroll Management">
+                        <span class="blog-category">Finance</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> November 12, 2024
+                        </div>
+                        <h5 class="blog-title">Bankroll Management for Poker Success</h5>
+                        <p class="blog-excerpt flex-grow-1">Essential principles of bankroll management that every poker player should follow to ensure long-term success and sustainability.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="section testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>Testimonials</h2>
+            <p>What fellow poker players and industry professionals have to say about my game and contributions.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Davis" class="testimonial-img">
+                    <p class="testimonial-text">Nikita is one of the most strategic and disciplined players I've ever faced. Her ability to read opponents and make perfect decisions under pressure is remarkable.</p>
+                    <div class="testimonial-author">
+                        <h5 class="testimonial-name">John Davis</h5>
+                        <p class="testimonial-position">WSOP Champion</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="testimonial-img">
+                    <p class="testimonial-text">As a fellow female poker player, Nikita has been an inspiration. Her WSOP bracelet win broke barriers and showed that women can compete at the highest levels in poker.</p>
+                    <div class="testimonial-author">
+                        <h5 class="testimonial-name">Sarah Johnson</h5>
+                        <p class="testimonial-position">Professional Poker Player</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Michael Chen" class="testimonial-img">
+                    <p class="testimonial-text">I've had the pleasure of commentating on several of Nikita's tournament runs. Her analytical approach and fearless play style make her one of the most exciting players to watch.</p>
+                    <div class="testimonial-author">
+                        <h5 class="testimonial-name">Michael Chen</h5>
+                        <p class="testimonial-position">Poker Commentator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Emma Wilson" class="testimonial-img">
+                    <p class="testimonial-text">Nikita's mentorship has been invaluable to my poker journey. Her insights on tournament strategy and bankroll management have transformed my game completely.</p>
+                    <div class="testimonial-author">
+                        <h5 class="testimonial-name">Emma Wilson</h5>
+                        <p class="testimonial-position">Emerging Poker Player</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Robert Thompson" class="testimonial-img">
+                    <p class="testimonial-text">As a tournament director, I've seen thousands of players. Nikita stands out not just for her skill, but for her professionalism and the positive energy she brings to the table.</p>
+                    <div class="testimonial-author">
+                        <h5 class="testimonial-name">Robert Thompson</h5>
+                        <p class="testimonial-position">Tournament Director</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="David Kumar" class="testimonial-img">
+                    <p class="testimonial-text">Nikita has been a tremendous ambassador for poker in India. Her success has inspired a new generation of players and helped grow the game exponentially in our country.</p>
+                    <div class="testimonial-author">
+                        <h5 class="testimonial-name">David Kumar</h5>
+                        <p class="testimonial-position">Poker Industry Executive</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>Have questions about poker coaching, speaking engagements, or just want to connect? Reach out to me.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-5 mb-5 mb-lg-0">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:contact@nikitaluther.com">contact@nikitaluther.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>New Delhi, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Social Media</h4>
+                            <p>Connect with me on social platforms</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://twitter.com/NikitaLuther" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/nikitaluther/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/nikita.luther" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/nikita-luther/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-7">
+                <form class="contact-form">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <input type="text" class="form-control" placeholder="Subject" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="contact-btn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-logo">Nikita Luther</div>
+        
+        <div class="footer-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#journey">Journey</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#skills">Skills</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="https://twitter.com/NikitaLuther" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/nikitaluther/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/nikita.luther" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/nikita-luther/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        
+        <div class="footer-text">
+            <p>Professional Poker Player | WSOP Bracelet Winner | Poker Coach</p>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nikita Luther. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Navbar scroll effect
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 50) {
+            $('.navbar').addClass('scrolled');
+        } else {
+            $('.navbar').removeClass('scrolled');
+        }
+        
+        // Back to top button
+        if ($(this).scrollTop() > 300) {
+            $('.back-to-top').addClass('active');
+        } else {
+            $('.back-to-top').removeClass('active');
+        }
+    });
+    
+    // Smooth scrolling for anchor links
+    $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault();
+        
+        var target = this.hash;
+        var $target = $(target);
+        
+        $('html, body').animate({
+            'scrollTop': $target.offset().top - 70
+        }, 800, 'swing');
+    });
+    
+    // Back to top button click
+    $('.back-to-top').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 800);
+        return false;
+    });
+    
+    // Initialize skill bars animation
+    function animateSkills() {
+        $('.skill-progress').each(function() {
+            var width = $(this).data('width');
+            $(this).css('width', width + '%');
+        });
+    }
+    
+    // Trigger skill animation when in viewport
+    $(window).on('scroll', function() {
+        var skillsSection = $('#skills');
+        if (skillsSection.length && $(window).scrollTop() >= skillsSection.offset().top - $(window).height() * 0.7) {
+            animateSkills();
+        }
+    });
+    
+    // Initialize on page load
+    $(document).ready(function() {
+        // Set skill bar widths to 0 initially
+        $('.skill-progress').each(function() {
+            var width = $(this).css('width');
+            $(this).data('width', width);
+            $(this).css('width', '0');
+        });
+        
+        // Check if skills section is already in viewport on page load
+        if ($(window).scrollTop() >= $('#skills').offset().top - $(window).height() * 0.7) {
+            animateSkills();
+        }
+    });
+</script>
+</body>
+</html>
